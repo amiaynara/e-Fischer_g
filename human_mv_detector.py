@@ -8,7 +8,7 @@ img_loc2="test_images/imc2.png"
 #load the positions
 img=cv2.imread(img_loc) # just gives the 3-layered r,g,b matrix
 nx_img=cv2.imread(img_loc2)
-print(img.shape)
+#print(img.shape)
 #crop the board
 img_crpd=img[133:945,534:1342]
 img2_crpd=nx_img[133:945,534:1342]
@@ -30,26 +30,39 @@ ret4,clear_img=cv2.threshold(blr_bin,130,255,cv2.THRESH_BINARY)
 
 #print(bin_from_gray)
 edges=cv2.Canny(clear_img,0,255) #-----> gives just the edges of the closed area
-print(clear_img)
+#print(clear_img)
 #finding the centroid (could be done by writing definition.... but naah I am fine)
 binary=clear_img
 binary=binary[:-3,:]
-cv2.imshow("binary",binary)
-cv2.waitKey(0)
+#cv2.imshow("binary",binary)
+#cv2.waitKey(0)
 cv2.destroyAllWindows()
 cnts=cv2.findContours(binary.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 cnts=imutils.grab_contours(cnts)
-print("the shape of cropped image is : ", binary.shape)
-print(cnts[0])
+#print("the shape of cropped image is : ", binary.shape)
+#print(cnts[0])
+comX=[]
+comY=[]
 for c in cnts:
 	M=cv2.moments(c) # M is just a dictionary
 	cX=int(M["m10"]/M["m00"])
 	cY=int(M["m01"]/M["m00"])
-	print(cX,cY)
+	comX.append(cX)
+	comY.append(cY)
 	cv2.drawContours(img_crpd,[c],-1,(0,255,0),2)
 	cv2.circle(img_crpd, (cX, cY), 7, (0, 0, 255), -1)
 	cv2.putText(img_crpd, "center", (cX - 20, cY - 20),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
 
-cv2.imshow("image",img_crpd)
-cv2.waitKey(0)
+#===cv2.imshow("image",img_crpd)
+#===cv2.waitKey(0)
+
+#----- centroids detected
+
+#----- detecting the move =====>
+move=""
+dict={0:'a',1:'b',2:"c",3:"d",4:"e",5:"f",6:"g",7:"h"}
+for i in range(2):
+	move+=dict[int(comX[i]/100)]
+	move+=str(8-int(comY[i]/100))
+print(move)
 
