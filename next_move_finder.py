@@ -1,8 +1,8 @@
 from selenium import webdriver
 import time
 from selenium.webdriver.common.action_chains import ActionChains as Actions
-file_location='/home/hduser/test_chess'
-file_location2='chess_position'
+
+file_location='/home/hduser/Projects/e-Fishcer/template'
 browser=webdriver.Chrome()
 browser.get('https://nextchessmove.com')
 browser.implicitly_wait(30)
@@ -29,4 +29,4 @@ the_move_element=browser.find_elements_by_xpath('//a[@href="#"]')[7] # Don't for
 the_move_element.click()
 #print(the_move_element.get_attribute("innerHTML"))
 print(the_move_element.text)
-
+browser.quit()
