@@ -12,7 +12,7 @@ nx_img=cv2.imread(img_loc2)
 #crop the board
 img_crpd=img[133:945,534:1342]
 img2_crpd=nx_img[133:945,534:1342]
-cv2.imwrite("cropped_board.png",img_crpd)
+#cv2.imwrite("cropped_board.png",img_crpd)
 #simplify the image
 	#---->first convert to grayscale
 gray_img1=cv2.cvtColor(img_crpd,cv2.COLOR_BGR2GRAY)

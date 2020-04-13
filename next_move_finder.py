@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 from selenium.webdriver.common.action_chains import ActionChains as Actions
 
-file_location='/home/hduser/Projects/e-Fishcer/template'
+file_location='/home/hduser/Projects/e-Fishcer/games/current_game'
 browser=webdriver.Chrome()
 browser.get('https://nextchessmove.com')
 browser.implicitly_wait(30)
