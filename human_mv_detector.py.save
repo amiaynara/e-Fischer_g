@@ -1,4 +1,4 @@
-import cv2
+import cv2e
 import imutils
 
 #cropping the board
@@ -15,9 +15,9 @@ nx_img=cv2.imread(img_loc2)
 #crop the board
 #img_crpd=img[133:945,534:1342] #img[y,x]
 #img2_crpd=nx_img[133:945,534:1342]
-img_crpd=img[156:1079,60:980]
-img2_crpd=nx_img[156:1079,60:980]
-#cv2.imwrite("cropped_board.png",img_crpd)
+img_crpd=img[156:1079,60:983]
+img2_crpd=nx_img[156:1079,60:983]
+cv2.imwrite("cropped_board.png",img_crpd)
 
 #simplify the image
 	#---->first convert to grayscale
