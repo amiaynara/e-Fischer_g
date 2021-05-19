@@ -35,6 +35,19 @@ There were quite a few challenges, but I would like to mention a few of them tha
     1. Tracking the pieces on the board: One solution was to place a 'reed sensor' beneath every square on the board these would say what piece is there on above it. however cost of each such sensor was Rs. 160, => (64x160), way over the budget could allow. 
     Solution: We placed a camera (Rs. 1300) right above the board, that captured the board state after each move was made. Since the initial state has to be the same for any chess game, this state can be cleverly assumed to be constant and hence the position of each of piece(say rook) is deterministic at the start of the game(position is always 
 
+    2. Picking up the chess piece: Shapes and heights of the chess pieces are different. This made it difficult for 
+        us to come up with a general clipping mechanism, and what should be the depth to which the clipping mechanisms
+        should drop in order to pick the piece. 
+    Solution: 3D printer saved the day! Thanks to our instructor(Dr. Surya IIT Hyd.), we had access to 3D printers. So we decided to print our own chess pieces. Normally, the chess pieces do not have uniform cross sectional arear. We designed the pieces to have uniform cross section area (by extruding the 2d picture of the piece) and then mounting it on flat cirular disk. This allowed us to make the width of every piece exactly the same. Hence it was muc easier for the clipping mechanism to get hold of the pieces. 
+    
+    below is not a technical challenge. you may not count it if you want. 
+    3. The worst happened. The laser cutting machine caught fire due mishandling by some students.
+    solution: we used acrylic cnc and milling machines to get our work done. 
+
+    4. Chess pieces are black and white & the board is also black-and white. This made the task of image processing a lot difficult. 
+    Solution: We colored our pieces red and green instead, this helped the tracking of the moves much easier. The color of the pieces don't matter(if you know chess you can beat some one even with pink pieces!). 
+
+
 
 
 
